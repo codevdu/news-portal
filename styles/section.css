@@ -1,37 +1,89 @@
-#fetured { /* Verifique se não é #featured com 'a' */
-    img {
-        height: 100%;
+section header {
+    border-top: 1px solid var(--stroke-color);
+    padding-block: 12px 24px;
+    font: var(--text-span);
+    display: flex; /* Added to allow alignment */
+    justify-content: space-between; 
+
+    a {
+        display: flex; /* Makes align-items work */
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+
+        span {
+            display: inline-block; /* Essential for width/height */
+            background: url(/assets/icons/ArrowRight.svg) no-repeat center;
+            background-size: contain;
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover span {
+            /* Maybe add a slight transform instead? */
+            transform: translateX(4px);
+            transition: transform 0.2s ease;
+        }
     }
 }
 
-.card {
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
+#featured {
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .card {
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
 
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0; 
-        top: 50%; 
-        background: linear-gradient(
-            180deg,
-            transparent 0%,
-            #020617 100%
-        );
-        pointer-events: none;
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0; 
+            top: 50%; 
+            background: linear-gradient(180deg, transparent 0%, #020617 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            padding: 24px;
+            z-index: 2;
+            
+            &:has(.text-lg) {
+                padding: 12px;
+            }
+        }
+    }
+}
+
+#weekly {
+
+    &>div {
+        grid-template-columns: repeat(4, 350px);
+        justify-content: space-between;
     }
 
-    figcaption {
-        position: absolute;
-        bottom: 0;
-        padding: 24px;
+    img {
+        height: 200px;
+    }
+    
+    figure {
+        position: relative;
 
-        &:has(.text-lg) {
-            padding: 12px;
+        .content-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
         }
-        h2 {
+        p {
             margin-top: 8px;
+            font-weight: 900;
         }
     }
 }
