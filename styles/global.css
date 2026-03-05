@@ -39,3 +39,18 @@ a:hover {
 h1, h2, h3 {
     font: inherit;
 }
+
+/* utility first */
+.grid {
+    display: grid;
+}
+
+.grid-flow-cols {
+    grid-auto-flow: column;
+}
+
+.container {
+    max-width: 1500px;
+    padding-inline: 32px;
+    margin-inline  : auto;
+}
